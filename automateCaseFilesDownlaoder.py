@@ -1,3 +1,28 @@
+"""
+Automated File Download Script
+
+This script automates the process of downloading files and directories from a secure remote server using SSH and SFTP.
+It connects to a specified remote server, navigates through directories, and allows the user to download individual
+files or entire directories. Excluded file patterns are defined to skip specific files during downloads.
+
+Author: Arafat
+Date: August 18, 2023
+
+Requirements:
+- Python 3.x
+- paramiko library (for SSH and SFTP connections)
+
+Instructions:
+1. Fill in the server details, including hostname, port, and your username/password.
+2. Run the script and follow the prompts to provide case number and local directory for downloads.
+3. Choose whether to download entire folders or specific files.
+4. Downloads are saved to the specified local directory.
+
+Note: This script handles KeyboardInterrupts gracefully, ensuring proper closure of resources.
+
+"""
+
+
 import paramiko
 import os
 
@@ -39,7 +64,7 @@ try:
     hostname = 'casefiles.sjc.cloudera.com'
     port = 22
     username = input("Enter your user name: ") # Enter your username here
-    password = input("Enter your Okta password: ")  # Enter your password here
+    password = input("Enter your password: ")  # Enter your password here
 
     # Create an SSH client instance
     ssh_client = paramiko.SSHClient()
